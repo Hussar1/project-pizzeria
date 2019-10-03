@@ -64,8 +64,9 @@ class Product {
     initMenu: function(){
       const thisApp = this;
       console.log('thisApp.data:', thisApp.data);
-      const testProduct = new Product();
-      console.log('testProduct:', testProduct);
+      for (let productData in thisApp.data.products){
+        new Product(productData, thisApp.data.products[productData]);
+      }
     },
 
     initData: function(){
