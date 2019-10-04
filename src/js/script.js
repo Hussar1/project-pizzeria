@@ -52,29 +52,29 @@
     menuProduct: Handlebars.compile(document.querySelector(select.templateOf.menuProduct).innerHTML),
   };
 
-class Product {
-  constructor(id, data){
-    const thisProduct = this;
-    thisProduct.id = id;
-    thisProduct.data = data;
-    thisProduct.renderInMenu();
-    console.log('new Product:', thisProduct);
-  }
+  class Product {
+    constructor(id, data){
+      const thisProduct = this;
+      thisProduct.id = id;
+      thisProduct.data = data;
+      thisProduct.renderInMenu();
+      console.log('new Product:', thisProduct);
+    }
 
-  renderInMenu(){
-    const thisProduct = this;
+    renderInMenu(){
+      const thisProduct = this;
 
-    // generate HTML based on template
-    const generatedHTML = templates.menuProduct(thisProduct.data);
-    // console.log('generatedHTML:', generatedHTML);
-    // create element using utils.CreateElementFromHTML
-    thisProduct.element = utils.createDOMFromHTML(generatedHTML);
-    // find menu container
-    const menuContainer = document.querySelector(select.containerOf.menu);
-    // add element to menu
-    menuContainer.appendChild(thisProduct.element);
+      // generate HTML based on template
+      const generatedHTML = templates.menuProduct(thisProduct.data);
+      // console.log('generatedHTML:', generatedHTML);
+      // create element using utils.CreateElementFromHTML
+      thisProduct.element = utils.createDOMFromHTML(generatedHTML);
+      // find menu container
+      const menuContainer = document.querySelector(select.containerOf.menu);
+      // add element to menu
+      menuContainer.appendChild(thisProduct.element);
+    }
   }
-}
 
   const app = {
     initMenu: function(){
