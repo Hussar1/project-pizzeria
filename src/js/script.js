@@ -188,7 +188,7 @@
       totalPrice *= thisProduct.amountWidget.value;
       /* set the contents of thisProduct.priceElem to be the value of variable price */
       console.log('totalPrice:', totalPrice);
-      thisProduct.priceElem = totalPrice;
+      thisProduct.priceElem.innerHTML = totalPrice;
     }
 
     initAmountWidget(){
