@@ -61,6 +61,7 @@
       thisProduct.getElements();
       thisProduct.initAccordion();
       thisProduct.initOrderForm();
+      thisProduct.initAmountWidget();
       thisProduct.processOrder();
       console.log('new Product:', thisProduct);
     }
@@ -86,6 +87,7 @@
       thisProduct.cartButton = thisProduct.element.querySelector(select.menuProduct.cartButton);
       thisProduct.priceElem = thisProduct.element.querySelector(select.menuProduct.priceElem);
       thisProduct.imageWrapper = thisProduct.element.querySelector(select.menuProduct.imageWrapper);
+      thisProduct.amountWidgetElem = thisProduct.element.querySelector(select.menuProduct.amountWidget);
     }
 
     initAccordion(){
@@ -94,7 +96,7 @@
 
       /* START: click event listener to trigger */
       thisProduct.accordionTrigger.addEventListener('click', function (){
-        console.log('Trigger was clicked!');
+        // console.log('Trigger was clicked!');
         /* prevent default action for event */
         event.preventDefault();
         /* toggle active class on element of thisProduct */
@@ -103,7 +105,7 @@
         const activeProducts = document.querySelectorAll(select.all.menuProductsActive);
         /* START LOOP: for each active product */
         for (let activeProduct of activeProducts) {
-          console.log('activeProduct:', activeProduct);
+          // console.log('activeProduct:', activeProduct);
           /* START: if the active product isn't the element of thisProduct */
           if (activeProduct !== thisProduct.element) {
             /* remove class active for the active product */
@@ -118,7 +120,7 @@
 
     initOrderForm(){
       const thisProduct = this;
-      console.log('thisProduct of initOrderFrom():', thisProduct);
+      // console.log('thisProduct of initOrderFrom():', thisProduct);
       thisProduct.form.addEventListener('submit', function(event){
         event.preventDefault();
         thisProduct.processOrder();
@@ -138,10 +140,10 @@
 
     processOrder(){
       const thisProduct = this;
-      console.log('thisProduct of processOrder():', thisProduct);
+      // console.log('thisProduct of processOrder():', thisProduct);
       /* read all data from the form (using utils.serializeFormToObject) and save it to const formData */
       const formData = utils.serializeFormToObject(thisProduct.form);
-      console.log('formData:', formData);
+      // console.log('formData:', formData);
       /* set variable price to equal thisProduct.data.price */
       let totalPrice = thisProduct.data.price;
       /* START LOOP: for each paramId in thisProduct.data.params */
@@ -185,6 +187,19 @@
       /* set the contents of thisProduct.priceElem to be the value of variable price */
       console.log('totalPrice:', totalPrice);
       thisProduct.priceElem = totalPrice;
+    }
+
+    initAmountWidget(){
+      const thisProduct = this;
+      thisProduct.amountWidget = new AmountWidget(thisProduct.amountWidgetElem);
+    }
+  }
+
+  class AmountWidget {
+    constructor(element) {
+      const thisWidget = this;
+      console.log('AmountWidget:', thisWidget);
+      console.log('contstructor arguments:', element);
     }
   }
 
