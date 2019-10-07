@@ -152,6 +152,9 @@
         for (let optionId in param.options){
           /* save the element in param.options with key optionId as const option */
           const option = param.options[optionId];
+          // find all thisProduct image Selectors
+          const imageSelectors = thisProduct.imageWrapper.querySelectorAll('.' + paramId + '-' + optionId);
+          // check if option is selected
           const optionSelected = formData.hasOwnProperty(paramId) && formData[paramId].indexOf(optionId) > -1;
           /* START IF: if option is selected and option is not default */
           if (optionSelected && !option.default){
@@ -164,6 +167,16 @@
             /* deduct price of option from price */
             totalPrice -= option.price;
           /* END ELSE IF: if option is not selected and option is default */
+          }
+          // START IF:
+          if (optionSelected) {
+            for (let imageSelector of imageSelectors){
+              imageSelector.classList.add(classNames.menuProduct.imageVisible);
+            }
+          } else {
+            for (let imageSelector of imageSelectors){
+              imageSelector.classList.remove(classNames.menuProduct.imageVisible);
+            }
           }
         /* END LOOP: for each optionId in param.options */
         }
