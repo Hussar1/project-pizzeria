@@ -97,7 +97,7 @@
       thisProduct.initOrderForm();
       thisProduct.initAmountWidget();
       thisProduct.processOrder();
-      console.log('new Product:', thisProduct);
+      // console.log('new Product:', thisProduct);
     }
 
     renderInMenu(){
@@ -221,7 +221,7 @@
       // multiply totalPrice by amount
       totalPrice *= thisProduct.amountWidget.value;
       /* set the contents of thisProduct.priceElem to be the value of variable price */
-      console.log('totalPrice:', totalPrice);
+      // console.log('totalPrice:', totalPrice);
       thisProduct.priceElem.innerHTML = totalPrice;
     }
 
@@ -241,8 +241,8 @@
       thisWidget.value = settings.amountWidget.defaultValue;
       thisWidget.setValue(thisWidget.input.value);
       thisWidget.initActions();
-      console.log('AmountWidget:', thisWidget);
-      console.log('contstructor arguments:', element);
+      // console.log('AmountWidget:', thisWidget);
+      // console.log('contstructor arguments:', element);
     }
 
     getElements(element){
@@ -289,7 +289,7 @@
   const app = {
     initMenu: function(){
       const thisApp = this;
-      console.log('thisApp.data:', thisApp.data);
+      // console.log('thisApp.data:', thisApp.data);
       for (let productData in thisApp.data.products){
         new Product(productData, thisApp.data.products[productData]);
       }
@@ -303,11 +303,11 @@
 
     init: function(){
       const thisApp = this;
-      console.log('*** App starting ***');
-      console.log('thisApp:', thisApp);
-      console.log('classNames:', classNames);
-      console.log('settings:', settings);
-      console.log('templates:', templates);
+      // console.log('*** App starting ***');
+      // console.log('thisApp:', thisApp);
+      // console.log('classNames:', classNames);
+      // console.log('settings:', settings);
+      // console.log('templates:', templates);
       thisApp.initData();
       thisApp.initMenu();
     },
