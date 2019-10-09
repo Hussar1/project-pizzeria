@@ -220,10 +220,11 @@
       /* END LOOP: for each paramId in thisProduct.data.params */
       }
       // multiply totalPrice by amount
-      totalPrice *= thisProduct.amountWidget.value;
+      thisProduct.priceSingle = totalPrice;
+      thisProduct.totalPrice = thisProduct.priceSingle * thisProduct.amountWidget.value;
+
       /* set the contents of thisProduct.priceElem to be the value of variable price */
-      // console.log('totalPrice:', totalPrice);
-      thisProduct.priceElem.innerHTML = totalPrice;
+      thisProduct.priceElem.innerHTML = thisProduct.totalPrice;
     }
 
     initAmountWidget(){
