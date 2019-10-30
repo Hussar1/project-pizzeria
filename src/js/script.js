@@ -179,6 +179,7 @@
       /* read all data from the form (using utils.serializeFormToObject) and save it to const formData */
       const formData = utils.serializeFormToObject(thisProduct.form);
       // console.log('formData:', formData);
+      thisProduct.params = {};
       /* set variable price to equal thisProduct.data.price */
       let totalPrice = thisProduct.data.price;
       /* START LOOP: for each paramId in thisProduct.data.params */
@@ -207,6 +208,14 @@
           }
           // START IF:
           if (optionSelected) {
+            if (!thisProduct.params[paramId]){
+              thisProduct.params[paramId] = {
+                label: param.label,
+                options: {},
+              };
+            }
+            thisProduct.params[paramId].options[optionId] = option.label;
+
             for (let imageSelector of imageSelectors){
               imageSelector.classList.add(classNames.menuProduct.imageVisible);
             }
@@ -225,6 +234,8 @@
 
       /* set the contents of thisProduct.priceElem to be the value of variable price */
       thisProduct.priceElem.innerHTML = thisProduct.totalPrice;
+
+      console.log('thisProduct.params:', thisProduct.params);
     }
 
     initAmountWidget(){
