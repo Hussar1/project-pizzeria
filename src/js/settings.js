@@ -1,4 +1,4 @@
-// import
+/* global Handlebars */
 
 export const select = {
   templateOf: {
@@ -87,3 +87,5 @@ export const templates = {
   cartProduct: Handlebars.compile(document.querySelector(select.templateOf.cartProduct).innerHTML),
   // CODE ADDED END
 };
+
+export default settings;

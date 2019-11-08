@@ -1,6 +1,7 @@
 /* global Handlebars, dataSource */
 
 export const utils = {}; // eslint-disable-line no-unused-vars
+export default utils;
 
 utils.createDOMFromHTML = function(htmlString) {
   let div = document.createElement('div');

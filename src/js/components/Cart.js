@@ -69,7 +69,7 @@ class Cart{
       thisCart.subtotalPrice += product.priceSingle;
       thisCart.totalNumber += product.amount;
     }
-    thisCart.totalPrice = thisCart.subtotalPrice + thisCart.totalNumber;
+    thisCart.totalPrice = thisCart.subtotalPrice + thisCart.deliveryFee;
     console.log('thisCart.totalNumber:', thisCart.totalNumber);
     console.log('thisCart.subtotalPrice:', thisCart.subtotalPrice);
     console.log('thisCart.totalPrice:', thisCart.totalPrice);

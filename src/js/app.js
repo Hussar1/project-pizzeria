@@ -11,9 +11,7 @@ const app = {
     }
   },
   initData: function(){
-    const thisApp = this;
 
-    thisApp.data = dataSource;
   },
   initCart: function(){
     const thisApp = this;
@@ -29,11 +27,6 @@ const app = {
   init: function(){
     const thisApp = this;
     const url = settings.db.url + '/' + settings.db.product;
-    // console.log('*** App starting ***');
-    // console.log('thisApp:', thisApp);
-    // console.log('classNames:', classNames);
-    // console.log('settings:', settings);
-    // console.log('templates:', templates);
     thisApp.data = {};
     fetch(url)
       .then(function(rawResponse){
