@@ -1,6 +1,8 @@
 class Booking {
-  constructor() {
-
+  constructor(element) {
+    const thisBooking = this;
+    thisBooking.render(element);
+    thisBooking.initWidgets();
   }
 
   render() {
