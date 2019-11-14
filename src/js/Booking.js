@@ -1,4 +1,5 @@
 import {templates, select} from './settings.js';
+import AmountWidget from './components/AmountWidget.js';
 
 class Booking {
   constructor(element) {
@@ -19,7 +20,8 @@ class Booking {
 
   initWidgets() {
     const thisBooking = this;
-
+    thisBooking.peopleAmount = new AmountWidget(thisBooking.dom.peopleAmount);
+    thisBooking.hoursAmount = new AmountWidget(thisBooking.dom.hoursAmount);
   }
 }
 

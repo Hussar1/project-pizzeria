@@ -49,8 +49,9 @@ const app = {
 
   initBooking() {
     const thisApp = this;
-    const reservationVidget = document.querySelector(select.containerOf.booking);
-    thisApp.booking = new Booking();
+    const reservationWidget = document.querySelector(select.containerOf.booking);
+    console.log('reservationWidget', reservationWidget);
+    thisApp.booking = new Booking(reservationWidget);
   }
 };
 app.init();
