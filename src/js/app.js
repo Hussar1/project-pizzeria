@@ -43,6 +43,13 @@ const app = {
 
     console.log('thisApp.data', JSON.stringify(thisApp.data));
     thisApp.initCart();
+    thisApp.initBooking();
   },
+
+  initBooking() {
+    const thisApp = this;
+    const reservationVidget = document.querySelector(select.containerOf.booking);
+    thisApp.booking = new Booking();
+  }
 };
 app.init();
