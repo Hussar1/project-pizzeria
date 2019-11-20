@@ -26,7 +26,7 @@ class AmountWidget extends BaseWidget{
       thisWidget.value = newValue;
       thisWidget.announce();
     }
-    thisWidget.dom.input.value = thisWidget.value;
+    thisWidget.renderValue();
   }
 
   parseValue(value){
@@ -37,6 +37,11 @@ class AmountWidget extends BaseWidget{
     return !isNaN(value)
     && value >= settings.amountWidget.defaultMin
     && value <= settings.amountWidget.defaultMax;
+  }
+
+  renderValue(){
+    const thisWidget = this;
+    thisWidget.dom.input.value = thisWidget.value;
   }
 
   initActions(){
