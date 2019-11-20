@@ -18,6 +18,16 @@ class BaseWidget{
     }
     thisWidget.renderValue();
   }
+
+  parseValue(value){
+    return parseInt(value);
+  }
+
+  isValid(value){
+    return !isNaN(value)
+    && value >= settings.amountWidget.defaultMin
+    && value <= settings.amountWidget.defaultMax;
+  }
 }
 
 export default BaseWidget;
