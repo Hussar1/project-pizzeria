@@ -7,6 +7,17 @@ class BaseWidget{
 
     thisWidget.value = initialValue;
   }
+
+  setValue(value){
+    const thisWidget = this;
+    const newValue = parseInt(value);
+    // TODO: Add validation
+    if (value != thisWidget.value && thisWidget.isValid(newValue)){
+      thisWidget.value = newValue;
+      thisWidget.announce();
+    }
+    thisWidget.renderValue();
+  }
 }
 
 export default BaseWidget;
