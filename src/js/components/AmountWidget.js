@@ -43,14 +43,6 @@ class AmountWidget extends BaseWidget{
       thisWidget.setValue(thisWidget.value + 1);
     });
   }
-
-  announce(){
-    const thisWidget = this;
-    const event = new CustomEvent('updated', {
-      bubbles: true
-    });
-    thisWidget.dom.wrapper.dispatchEvent(event);
-  }
 }
 
 export default AmountWidget;
